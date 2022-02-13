@@ -1,0 +1,14 @@
+.out{
+    margin-top: 20px;
+    width: 400px;
+    height: 200px;
+    border: 1px solid blue;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color: blue;
+}

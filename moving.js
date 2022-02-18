@@ -37,6 +37,6 @@ function moveB(){
         dynamic.style.marginTop =  currTop+"px"
     }
     else{
-        
+      console.log("stop")  
     }
 }

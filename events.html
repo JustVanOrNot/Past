@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+   
+    <link rel="stylesheet" href="evcss.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="dynamic_block"></div>
+    </div>
+
+    <div class="half">
+        <h2>Creating</h2>
+        <div class="form">
+            <form action="">
+                
+                <div class="first">
+                    <input type="text" class="inp" id="width" value="60" placeholder="Width"><input type="text" class="inp" id="height" value="60" placeholder="Height">
+                    <input type="button" value="" id="color" onclick="Col()">
+                </div>
+               
+                <div class="second">
+                    <input type="button" value="Enter" id="Enter" onclick="setWidth()" >
+                    <input type="button" value="Delete" id="Delete" onclick="Del()">
+                </div>
+            </form>
+        </div>
+        <h2>Moving</h2>
+        <div class="ctrls">
+            <div class="col">
+                <button onclick="moveR()">Right</button>
+                <button onclick="moveL()">Left</button></div>
+            <div class="col">
+                <button onclick="moveT()">Top</button>
+                <button onclick="moveB()">Bottom</button>
+            </div>
+            
+            
+        </div>
+    </div>
+   
+    
+    <script src="scr.js"></script>
+</body>
+</html>

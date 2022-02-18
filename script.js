@@ -15,4 +15,11 @@ function mainCLick(){
     i++;
     current.value = " "
    
+} 
+function Del(){
+    lishka = document.querySelector(".recent #li" + i);
+    console.log(lishka);
+
+    alert("dima");
+
 }

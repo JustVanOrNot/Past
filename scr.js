@@ -2,7 +2,7 @@ let  dynamic = document.querySelector(".dynamic_block");
 let container = document.querySelector(".container");
 let inpW =document.querySelector("#width");
 let npH =document.querySelector("#height");
-let line= false;
+
 let color = document.querySelector("#color");
 let click = 0;
 
@@ -20,40 +20,40 @@ let currentH=40;
 
 function moveR(){
     if(dynamic.style.marginLeft == 800-currentW+"px") {
-        line = true;
+       
     }
     else{
-        line = false;
+        
         curr+=step;
         dynamic.style.marginLeft = curr+"px"
     }
 }
 function moveL(){
     if(dynamic.style.marginLeft <= 0+"px") {
-        line = true;
+     
     }
     else{
-        line = false;
+      
         curr-=step;
         dynamic.style.marginLeft = curr+"px"
     }
 }
 function moveT(){
     if(dynamic.style.marginTop <= 0+"px") {
-        line = true;
+    
     }
     else{
-        line = false;
+        
         currTop-=step;
         dynamic.style.marginTop = currTop+"px"
     }
 }
 function moveB(){
     if(dynamic.style.marginTop == 400-currentH+"px") {
-        line = true;
+        
     }
     else{
-        line = false;
+       
         currTop=currTop+step;
         dynamic.style.marginTop = currTop+"px"
     }
@@ -70,25 +70,22 @@ function moveB(){
 
 
 function setWidth(){
-    if(line){
-     
-        alert("даже не пробуй!")
-    }
-    else{
+    
+    
         let promptW = document.querySelector("#width").value;
         let attempt = ~~promptW;
         let promptH=document.querySelector("#height").value;
         let attempt1= ~~promptH;
         currentH= promptH;
         currentW=promptW;
-        if(attempt1<=0){
+        if(attempt1<=0||currentH + ~~(dynamic.style.marginTop.slice(0,-2).trim())>=400){
             console.warn("дурак?")
             Del()
         }
         else{
           dynamic.style.height=promptH+"px";  
         }
-        if((attempt<=0)){
+        if((attempt<=0)||currentH+ ~~(dynamic.style.marginLeft.slice(0,-2).trim())>=800){
             console.warn("дурак?")
             Del()
         }
@@ -101,7 +98,7 @@ function setWidth(){
   
     
     
-}
+
 function Del(){
     document.querySelector("#height").value = " ";
     document.querySelector("#width").value = " ";

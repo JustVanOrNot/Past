@@ -71,10 +71,10 @@ function moveB(){
 
 }
 function create(){
-    currentW = ~~(document.querySelector("#width").value.toString());
-    currentH = ~~(document.querySelector("#height").value.toString());
+    currentW = ~~(document.querySelector("#width").value.toString().slice(0,-2));
+    currentH = ~~(document.querySelector("#height").value.toString().slice(0,-2));
     if(currentH<=0||currentW<=0||currentH>=400||currentW>=800){
-
+        console.log("no")
     }
     else{
         div = document.createElement("div");

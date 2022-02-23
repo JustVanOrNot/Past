@@ -4,6 +4,7 @@ for(let i =0; i<arr.length; i++){
     sum+=arr[i];
     console.log(arr[i]);
 }
+console.log(sum)
 console.log("||")
 let array = [2,5,9,15,0,4];
 for(let i=0; i<=arr.length;i++){

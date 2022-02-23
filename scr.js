@@ -1,15 +1,14 @@
-let  dynamic = document.querySelector(".dynamic_block");
+let dynamic = document.querySelector("dynamic_block");
 let container = document.querySelector(".container");
 let inpW =document.querySelector("#width");
 let npH =document.querySelector("#height");
 
 let color = document.querySelector("#color");
 let click = 0;
+let created  = false;
 
 
-container.style.width= "800px";
-dynamic.style.width="40px";
-dynamic.style.height="40px";
+
     
 
 let step=10;
@@ -19,45 +18,76 @@ let currentW=40;
 let currentH=40;
 
 function moveR(){
-    if(dynamic.style.marginLeft == 800-currentW+"px") {
-       
+    if(created == true){
+        if(~~document.querySelector(".dynamic_block").style.marginLeft.slice(0,-2)+ ~~document.querySelector(".dynamic_block").style.width.slice(0,-2) >= 800-~~document.querySelector(".dynamic_block").style.width.slice(0,-2)) {
+            
+        }
+        else{
+            curr+=step;
+            document.querySelector(".dynamic_block").style.marginLeft = curr+"px"
+          
+        }
     }
-    else{
-        
-        curr+=step;
-        dynamic.style.marginLeft = curr+"px"
-    }
+    
 }
 function moveL(){
-    if(dynamic.style.marginLeft <= 0+"px") {
+    if(created == true){
+        if(document.querySelector(".dynamic_block").style.marginLeft <= 0+"px") {
      
     }
     else{
       
         curr-=step;
-        dynamic.style.marginLeft = curr+"px"
+        document.querySelector(".dynamic_block").style.marginLeft = curr+"px"
     }
+    }
+    
 }
 function moveT(){
-    if(dynamic.style.marginTop <= 0+"px") {
+    if(created == true){}
+    if(document.querySelector(".dynamic_block").style.marginTop <= 0+"px") {
     
     }
     else{
         
         currTop-=step;
-        dynamic.style.marginTop = currTop+"px"
+        document.querySelector(".dynamic_block").style.marginTop = currTop+"px"
     }
+    
 }
 function moveB(){
-    if(dynamic.style.marginTop == 400-currentH+"px") {
+    if(created == true){
+
+       if(~~document.querySelector(".dynamic_block").style.marginTop.slice(0,-2)+~~document.querySelector(".dynamic_block").style.height.slice(0,-2)== 400) {
         
     }
     else{
        
         currTop=currTop+step;
-        dynamic.style.marginTop = currTop+"px"
+        document.querySelector(".dynamic_block").style.marginTop = currTop+"px"
+    }  
     }
+   
 
+}
+function create(){
+    currentW = ~~(document.querySelector("#width").value.toString());
+    currentH = ~~(document.querySelector("#height").value.toString());
+    if(currentH<=0||currentW<=0){
+
+    }
+    else{
+        div = document.createElement("div");
+    div.classList.add("dynamic_block");
+    div.style.width = currentW+"px";
+    div.style.height = currentH+"px";
+    container.append(div);
+    
+    Enter = document.querySelector("#Enter");
+    Enter.remove();
+    created = true;
+    }
+    
 }
 
 
@@ -69,37 +99,22 @@ function moveB(){
 
 
 
-function setWidth(){
-    
-    
-        let promptW = document.querySelector("#width").value;
-        let attempt = ~~promptW;
-        let promptH=document.querySelector("#height").value;
-        let attempt1= ~~promptH;
-        currentH= promptH;
-        currentW=promptW;
-        if(attempt1<=0||currentH + ~~(dynamic.style.marginTop.slice(0,-2).trim())>=400){
-            console.warn("дурак?")
-            Del()
-        }
-        else{
-          dynamic.style.height=promptH+"px";  
-        }
-        if((attempt<=0)||currentH+ ~~(dynamic.style.marginLeft.slice(0,-2).trim())>=800){
-            console.warn("дурак?")
-            Del()
-        }
-        else{
-            
-            dynamic.style.width=promptW+"px";
-            
-        }
-    }
+
   
     
     
 
 function Del(){
+    let b =  document.querySelector(".dynamic_block");
+    b.remove();
+    enter = document.createElement("input");
+    enter.setAttribute("type", "button");
+    enter.id = "Enter";
+    enter.setAttribute("onclick", "create()")
+    enter.setAttribute("value", "Enter")
+    
+    document.querySelector(".second").append(enter);
+    enter.style.marginTop = "5px";
     document.querySelector("#height").value = " ";
     document.querySelector("#width").value = " ";
 }
@@ -107,19 +122,19 @@ function Col(){
     click++;
     if(click==1){
         color.style.backgroundColor = "green";
-        dynamic.style.backgroundColor = "green";
+        document.querySelector(".dynamic_block").style.backgroundColor = "green";
     }
     if(click==2){
         color.style.backgroundColor = "blue";
-        dynamic.style.backgroundColor = "blue";
+        document.querySelector(".dynamic_block").style.backgroundColor = "blue";
     }
     if(click==3){
         color.style.backgroundColor = "red";
-        dynamic.style.backgroundColor = "red";
+        document.querySelector(".dynamic_block").style.backgroundColor = "red";
     }
     if(click==4){
         color.style.backgroundColor = "indigo";
-        dynamic.style.backgroundColor = "indigo";
+        document.querySelector(".dynamic_block").style.backgroundColor = "indigo";
     }
     if(click>4){
         click=0;

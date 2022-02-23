@@ -19,7 +19,7 @@ let currentH=40;
 
 function moveR(){
     if(created == true){
-        if(~~document.querySelector(".dynamic_block").style.marginLeft.slice(0,-2)+ ~~document.querySelector(".dynamic_block").style.width.slice(0,-2) >= 800-~~document.querySelector(".dynamic_block").style.width.slice(0,-2)) {
+        if(document.querySelector(".dynamic_block").style.marginLeft== 800-~~document.querySelector(".dynamic_block").style.width.slice(0,-2)+"px") {
             
         }
         else{
@@ -58,13 +58,13 @@ function moveT(){
 function moveB(){
     if(created == true){
 
-       if(~~document.querySelector(".dynamic_block").style.marginTop.slice(0,-2)+~~document.querySelector(".dynamic_block").style.height.slice(0,-2)== 400) {
-        
-    }
-    else{
-       
+       if(document.querySelector(".dynamic_block").style.marginTop== 800-~~document.querySelector(".dynamic_block").style.height.slice(0,-2)+"px") {
         currTop=currTop+step;
         document.querySelector(".dynamic_block").style.marginTop = currTop+"px"
+        }
+    else{
+       
+        
     }  
     }
    

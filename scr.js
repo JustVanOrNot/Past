@@ -73,7 +73,7 @@ function moveB(){
 function create(){
     currentW = ~~(document.querySelector("#width").value.toString());
     currentH = ~~(document.querySelector("#height").value.toString());
-    if(currentH<=0||currentW<=0){
+    if(currentH<=0||currentW<=0||currentH>=400||currentW>=800){
 
     }
     else{

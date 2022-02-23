@@ -74,7 +74,8 @@ function create(){
     currentW = ~~(document.querySelector("#width").value.toString().slice(0,-2));
     currentH = ~~(document.querySelector("#height").value.toString().slice(0,-2));
     if(currentH<=0||currentW<=0||currentH>=400||currentW>=800){
-        console.log("no")
+        console.log("no"+"err")
+        console.log("error");
     }
     else{
         div = document.createElement("div");
